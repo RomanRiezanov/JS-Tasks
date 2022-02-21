@@ -165,15 +165,35 @@ const calculateDifference = (obj, sum) => {
 // TASK 13
 
 const leftRotations = str => {
-    const result = [];
-    let rotateStr = [];
+    const result = [str];
+    const splittedArr = str.split('');
 
-    const splittedStr = str.split('');
-    for (let i = 0; i < splittedStr.length; i++) {
-        rotateStr = rotateStr.concat(splittedStr.slice(1), splittedStr.slice(0, 1));
+    for (let i = 1; i < splittedArr.length; i++) {
+        splittedArr.push(splittedArr.shift());
         
-        result[i] = rotateStr.join('');
+        result.push(splittedArr.join(''));
     }
-    
+
     return result
 }
+
+const rightRotations = str => {
+    const result = [str];
+    const splittedArr = str.split('');
+
+    for (let i = 1; i < splittedArr.length; i++) {
+        splittedArr.unshift(splittedArr.pop());
+        
+        result.push(splittedArr.join(''));
+    }
+
+    return result
+}
+
+// TASK 14
+
+const brickFit = (a, b, c, d, e) => {
+    if (a <= d && c <= e) {
+      return true;
+    } else return false;
+};
